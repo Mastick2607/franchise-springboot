@@ -1,0 +1,26 @@
+
+services:
+  # 1. Base de Datos (El nombre de este servicio debe ser 'mongodb' para que coincida con la URI)
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_franquicias
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # 2. Tu Aplicación Backend
+  app-backend:
+    build: .
+    container_name: spring_backend_container
+    ports:
+      - "8080:8080"
+    environment:
+      # Aquí inyectamos la variable que definiste en el application.yml como ${MONGODB_URI}
+      # Nota que usamos 'mongodb' (el nombre del servicio arriba) en lugar de 'localhost'
+      - MONGODB_URI=mongodb://mongodb:27017/db_franquicias
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo_data:

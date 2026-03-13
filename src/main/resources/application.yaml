@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      # Quitamos el nombre de la DB de la URI para evitar confusiones
+      uri: ${MONGODB_URI:mongodb://localhost:27017}
+      # Esta es la propiedad que Spring debe leer
+      database: db_franquicias
+  main:
+    web-application-type: reactive
+
+server:
+  port: 8080
