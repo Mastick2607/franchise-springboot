@@ -20,7 +20,7 @@ Este proyecto es una solución robusta y escalable para la gestión de franquici
 
 ## Para ejecutar este proyecto, solo necesitas tener instalado:
 
-- Docker Desktop (incluye Docker Compose).
+- Docker Desktop y abrirlo (incluye Docker Compose).
 
 - Un cliente para probar APIs (como Postman o Insomnia).
 
